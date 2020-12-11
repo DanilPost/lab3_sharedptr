@@ -77,3 +77,10 @@ TEST(Operator_test, test_equality) {
     pointer2 = pointer;
     EXPECT_EQ(pointer2.get(), pointer.get());
 }
+
+TEST(Move_test, test_assign_construct) {
+    EXPECT_EQ(std::is_move_assignable<SharedPtr<int>>::value, true);
+    EXPECT_EQ(std::is_move_constructible<SharedPtr<int>>::value, true);
+    EXPECT_EQ(std::is_move_assignable<SharedPtr<double>>::value, true);
+    EXPECT_EQ(std::is_move_constructible<SharedPtr<double>>::value,true);
+}
